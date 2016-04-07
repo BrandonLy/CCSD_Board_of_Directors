@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title>CCSD Board of Directors | Trustees</title>
+
+  <link href="css/ionic.app.css" rel="stylesheet">
+
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
+
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+  <script src="js/controllers/main.js"></script>
+  <script src="js/directives/menu.js"></script>
+</head>
+
+<!-- Set the angular app here -->
+
+<body ng-app="CCSD_Board">
+  <ion-pane>
+
+    <!-- mainCtrl scope starts here -->
+    <div ng-controller="mainCtrl">
+
+      <!-- Anything that is visible on the page should be inside the <ion-content> </ion-content> tags -->
+      <ion-content>
+
+        <!-- Custom Menu Directive - Code for this can be found in templates/menu.html -->
+        <menu></menu>
+
+        <!-- This will be the same for the pages except the image changes -->
+        <div class="header">
+          <img class="trustees-tagline tagline" src="img/CCSDlogo.jpg" />
+        </div>
+
+        <!-- Add a background image to this (trustees.jpg) -->
+        <div class="trustees-banner banner">
+          <h1 class="page-header">Trustees</h1>
+          <p class="page-tagline">All students progress in school and graduate prepared to succeed and contribute in a diverse global society.</p>
+        </div>
+
+        <!-- This is the scroll down call to action -->
+        <div class="scroller">
+          <p>scroll down for more info</p>
+          <!-- Change the css of this div to be a triangle -->
+          <div class="triangle-down"></div>
+        </div>
+
+
+
+    </ion-content>
+      <!-- mainCtrl scope ends here -->
+    </div>
+
+  </ion-pane>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+// $ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+// @import "../www/lib/ionic/scss/";
+
+$p-size : 16px;
+
+
+@mixin vert-margins($margin-v) {
+	margin-top:$margin-v;
+	margin-bottom:$margin-v;
+}
+@mixin hor-margins($margin-h) {
+	margin-left:$margin-h;
+	margin-right:$margin-h;
+}
+@mixin img-wh($wh) {
+	width:$wh;
+	height:$wh;
+}
+
+div.header {
+	width:90%;
+	border-bottom:4px solid black;
+	@include hor-margins(auto);
+	img.home-tagline {
+		text-align:center;
+		display:block;
+		@include img-wh(30%);
+		@include hor-margins(auto);
+		@include vert-margins(5px);
+	}
+}
+
+div.home-banner {
+	@include hor-margins(auto);
+	h1 {
+		width:90%;
+		text-align:center;
+		font-size:12vw;
+		@include hor-margins(5%);
+		@include vert-margins(0px);
+	}
+	p {
+		font-size:$p-size;
+		width:90%;
+		text-align:center;
+		border-top:4px solid black;
+		@include hor-margins(5%);
+		@include vert-margins(0px);
+	}
+}

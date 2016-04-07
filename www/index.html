@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title>CCSD Board of Directors | Home</title>
+
+  <link href="css/ionic.app.css" rel="stylesheet">
+
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
+
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+  <script src="js/controllers/main.js"></script>
+  <script src="js/directives/menu.js"></script>
+</head>
+
+<!-- Set the angular app here -->
+<body ng-app="CCSD_Board">
+  <ion-pane>
+
+    <!-- mainCtrl scope starts here -->
+    <div ng-controller="mainCtrl">
+
+      <!-- Anything that is visible on the page should be inside the <ion-content> </ion-content> tags -->
+      <ion-content>
+
+        <!-- Custom Menu Directive - Code for this can be found in templates/menu.html -->
+        <menu></menu>
+
+        <!-- This will be the same for the pages except the image changes -->
+        <div class="header">
+          <img class="home-tagline tagline" src="img/PledgeOfAchievement.png" />
+        </div>
+
+        <!-- Add a background image to this (pledgeofachievement.jpg) -->
+        <div class="home-banner banner">
+          <h1 class="page-header">Take the Pledge of Achievement</h1>
+          <p class="page-tagline">Join your community in taking the Pledge of Achievement and show your support</p>
+        </div>
+
+        <!-- This is the scroll down call to action -->
+        <div class="scroller">
+          <p>scroll down to pledge</p>
+          <!-- Change the css of this div to be a triangle -->
+          <div class="triangle-down"></div>
+        </div>
+
+        <!-- Begin the Contact form -->
+        <div class="form">
+
+          <h1 class="form-header">Take the Pledge</h1>
+          <div class="form-tagline">
+            <img src="img/PledgeOfAchievement.png" />
+            <div class="form-info">
+              <p class="pledge">
+                As a person or business committed to the continued growth and development of Southern Nevada, I plan to support CCSD and engage my voice, my time, and my energy to improve student achievement throughout Clark County.
+              </p>
+              <p class="required"><span class="asterisk">*</span>required</p>
+            </div>
+          </div>
+
+          <!-- TODO: find a newsletter system for this form -->
+          <form action="https://formspree.io/your@email.com" method="POST">
+
+            <!-- The first of two "pages" to the form -->
+            <!-- Show when the user clicks the go back button -->
+            <div class="form-page-1">
+
+              <label for="name"><span class="asterisk">*</span>First Name</label>
+              <input type="text" name="firstName">
+
+              <label for="name"><span class="asterisk">*</span>Last Name</label>
+              <input type="text" name="lastName">
+
+              <label for="business">Business Name</label>
+              <input type="text" name="business" />
+
+              <label for="email"><span class="asterisk">*</span>Your Email</label>
+              <input type="email" name="_replyto">
+
+              <label for="phone">Phone Number</label>
+              <input type="tel" name="phone"/>
+
+              <!-- This is gonna operate as the continue button - shows from-page-2 -->
+              <button onclick="continueForm();" class="continue">CONTINUE</button>
+
+            </div>
+
+            <!-- The second of the two "pages" to the form -->
+            <!-- Show when the user clicks the continue button -->
+            <div class="form-page-2">
+              <p>
+                I would like to receive more information on (email or phone required above):
+              </p>
+
+              <div class="more-information-section">
+
+                <!-- These checkboxes are gonna take some PHP or another clever data -->
+                <!-- http://codepen.io/CreativeJuiz/pen/BiHzp see this for custom styling of checkboxes -->
+                <input type="checkbox" name="mentor" />
+                <label for="mentor">Mentoring Programs</label>
+                <p>
+                  With a commitment of one hour a week, you can make a difference in a child’s future. CCSD has several mentorship programs to encourage students to stay in school and help promote future education and career focus.
+                </p>
+
+                <input type="checkbox" name="tutoring" />
+                <label for="tutoring">Tutoring a Student</label>
+                <p>
+                  Students have needs across all proficiencies which may require the services of a volunteer tutor. CCSD is especially focused on literacy by 3rd grade, where we need the help of tutors to listen to early readers and help them with site words.
+                </p>
+
+                <input type="checkbox" name="speaker" />
+                <label for="speaker">Speaker Opportunities for PAYBAC (Professionals & Youth Building a Commitment)</label>
+                <p>
+                  Share the benefits of your personal and professional experience and speak to at-risk middle school and alternative high school students about the importance of education.
+                </p>
+
+                <input type="checkbox" name="adopt"/>
+                <label for="adopt">Adopting a School (Business & Organizations)</label>
+                <p>
+                  With our business partners’ help in providing needed resources for students, we build programs to "Unify business and community resources to enhance the educational experience." Large or small, any business, organization or agency can help!
+                </p>
+
+                <input type="submit" value="TAKE THE PLEDGE" />
+              </div>
+
+            </div>
+          </form>
+        </div>
+        <!-- End the Contact form -->
+
+      </ion-content>
+    <!-- mainCtrl scope ends here -->
+    </div>
+
+  </ion-pane>
+</body>
+
+</html>
