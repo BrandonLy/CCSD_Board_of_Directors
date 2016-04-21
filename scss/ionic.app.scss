@@ -21,8 +21,29 @@ $dark:                            #444 !default;
 // Include all of Ionic
 // @import "../www/lib/ionic/scss/";
 
-$p-size : 16px;
+//sass --watch scss:www/css/
 
+@font-face {
+    font-family: 'adam.cg_proregular';
+    src: url('../fonts/adam.cg_pro-webfont.eot');
+    src: url('../fonts/adam.cg_pro-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/adam.cg_pro-webfont.woff2') format('woff2'),
+         url('../fonts/adam.cg_pro-webfont.woff') format('woff'),
+         url('../fonts/adam.cg_pro-webfont.ttf') format('truetype'),
+         url('../fonts/adam.cg_pro-webfont.svg#adam.cg_proregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+$p-size : 16px;
+$lightgray : #DEDEDE;
+$gray : #424242;
+$orange : #E99E31;
+$blue : #004A91;
+$lightblue : #8EA5D4;
+
+$adam : 'adam.cg_proregular';
 
 @mixin vert-margins($margin-v) {
 	margin-top:$margin-v;
@@ -37,9 +58,58 @@ $p-size : 16px;
 	height:$wh;
 }
 
+@mixin background-image($url) {
+	background-image: url($url);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+
+
+div.site-wrap {
+  /* Critical position and size styles */
+  min-height: 100%;
+  min-width: 100%;
+  background-color: white; /* Needs a background or else the nav will show through */
+  position: relative;
+  top: 0;
+  bottom: 100%;
+  left: 0;
+  z-index: 1;
+  background-image: linear-gradient(135deg, rgb(254,255,255) 0%,rgb(221,241,249) 35%,rgb(160,216,239) 100%);
+  background-size: 200%;
+}
+
+button.button {
+
+}
+
+.page-header {
+	text-transform: uppercase;
+	color: $gray;
+  font-family: $adam;
+  font-size: 32pt;
+}
+
+.page-tagline {
+	color: $orange;
+	max-width: 80%;
+	text-align: center;
+  font-family: "Source Sans Pro";
+  font-size: 12pt;
+}
+
+.header {
+	img {
+		max-width: 100%;
+		margin: 0 auto;
+	}
+}
+
 div.header {
 	width:90%;
-	border-bottom:4px solid black;
+	border-bottom:4px solid $lightgray;
+	margin-bottom:20px;
 	@include hor-margins(auto);
 	img.home-tagline {
 		text-align:center;
@@ -50,21 +120,444 @@ div.header {
 	}
 }
 
+div.line {
+	width:70%;
+	border-bottom:4px solid $lightblue;
+	@include vert-margins(5px);
+}
+
 div.home-banner {
 	@include hor-margins(auto);
-	h1 {
-		width:90%;
+	height:60vh; //change
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-direction:column;
+	background:linear-gradient(
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.8)
+    ), url(../img/pledgeofachievement.jpg) no-repeat;
+	background-size:100% 100%;
+
+	h1.page-header {
+		width:100%;
 		text-align:center;
-		font-size:12vw;
-		@include hor-margins(5%);
+		font-size:10vw;
+		text-transform:uppercase;
 		@include vert-margins(0px);
 	}
-	p {
+	p.page-tagline {
 		font-size:$p-size;
-		width:90%;
+		color: $orange;
+		width:80%;
 		text-align:center;
-		border-top:4px solid black;
-		@include hor-margins(5%);
+		@include hor-margins(10%);
 		@include vert-margins(0px);
 	}
 }
+
+menu {
+	div.links-wrapper {
+			ul {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				z-index: 0;
+				li {
+					width: 200px;
+					border-top: 1px solid #111;
+					border-bottom: 1px solid #000;
+					a {
+						display: block;
+						padding: 1em;
+						background: linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+						color: white;
+						font-size: 1.2em;
+						text-decoration: none;
+						transition: color 0.2s, background 0.5s;
+					}
+					a:hover {
+						color: #c74438;
+  						background: linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(75,20,20,0.65) 100%);
+					}
+				}
+			}
+		}
+		.nav-trigger {
+		  /* critical styles - hide the checkbox input */
+		  position: absolute;
+		  clip: rect(0, 0, 0, 0);
+		}
+		label[for="nav-trigger"] {
+		  /* critical positioning styles */
+		  position: fixed;
+		  left: 15px;
+		  top: 15px;
+		  z-index: 2;
+		  /* non-critical apperance styles */
+		  height: 30px;
+		  width: 30px;
+		  cursor: pointer;
+		  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30' xml:space='preserve'><rect width='30' height='6'/><rect y='24' width='30' height='6'/><rect y='12' width='30' height='6'/></svg>");
+		  background-size: contain;
+		}
+		/* Make the Magic Happen */
+		.nav-trigger + label, .site-wrap {
+		  transition: left 0.2s;
+		}
+		.nav-trigger:checked + label {
+		  left: 215px;
+		}
+		.nav-trigger:checked ~ .site-wrap {
+		  left: 200px;
+		  box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+		}
+}
+
+div.scroller {
+	@include vert-margins(50px);
+	p {
+		width:35%;
+		text-align:center;
+		font-size:$p-size;
+		text-transform:uppercase;
+		margin-bottom:10px;
+		color: $lightblue;
+    font-family: "Source Sans Pro";
+    font-size: 8pt;
+		@include hor-margins(auto);
+
+	}
+	div.triangle-down {
+		width:12%;
+		@include hor-margins(auto);
+		img {
+			width:100%;
+		}
+	}
+}
+
+/* Form Styles */
+
+div.form {
+	width:90%;
+  position: relative;
+	@include hor-margins(auto);
+	h1.form-header {
+    color: $gray;
+    font-family: $adam;
+    font-size: 24pt;
+    margin-bottom: 20px;
+		text-transform:uppercase;
+		@include hor-margins(auto);
+		text-align:center;
+	}
+	div.form-tagline {
+		display:flex;
+		justify-content:space-between;
+		width:100%;
+		@include hor-margins(auto);
+		img {
+			padding-bottom:5px;
+			border-bottom:$lightgray solid 5px;
+			text-align:center;
+			display:block;
+			@include img-wh(40%);
+		}
+		div.form-info {
+			display:block;
+			width:55%;
+			p.pledge {
+				width:100%;
+        font-family: "Source Sans Pro";
+        font-weight: 300;
+        color: black;
+				font-size:8pt;
+			}
+			p.required {
+        padding-top: 15px;
+				text-transform:uppercase;
+				font-style: italic;
+				font-size: 9pt;
+        font-family: "Source Sans Pro";
+        font-weight: 600;
+				span.asterisk {
+					font-size: 2.2em;
+          line-height: 6px;
+				}
+			}
+		}
+	}
+	span.asterisk {
+		color: $orange;
+    font-size: 20pt;
+	}
+	form {
+		width:90%;
+		@include hor-margins(auto);
+		div.form-page-1 {
+			height:60vh;
+			label {
+				font-size: 0.8em;
+			}
+		}
+		div.form-page-2 {
+			p.form-tagline-blue {
+				color: $blue;
+        margin-top: 20px;
+        text-align: center;
+        font-family: "Source Sans Pro";
+        font-weight: 600;
+        font-style: italic;
+        font-size: 10pt;
+			}
+			div.more-information-section {
+				label {
+					color: $orange;
+				}
+				input {
+				}
+			}
+		}
+		label {
+			text-transform:uppercase;
+      font-family: "Source Sans Pro";
+      font-weight: 600;
+      font-size: 20pt;
+		}
+		input {
+			width:100%;
+			height:5vh;
+			border: $lightgray 5px solid;
+      margin-bottom: 20px;
+		}
+		button.continue {
+      font-family: "Source Sans Pro";
+      font-weight: 600;
+      font-style: italic;
+      font-size: 11pt;
+			background:$orange;
+			color:#fff;
+			display:block;
+			width:60%;
+			height:6vh;
+			margin-top:30px;
+			border:none;
+			@include hor-margins(auto);
+		}
+	}
+}
+
+.form-page-1 {
+  position: absolute;
+}
+
+.form-page-2 {
+  display: none;
+  position: absolute;
+  .form-tagline {
+    border-bottom: 4px $lightgray solid;
+    img {
+      border-bottom: none !important;
+      margin: 0 auto;
+    }
+  }
+  label {
+    font-family: $adam !important;
+    font-size: 11.27pt !important;
+    width: 100px;
+  }
+  input[type=checkbox] {
+    width: 30px !important;
+    margin-bottom: 0;
+  }
+  .more-information-section {
+    p {
+      font-family: "Source Sans Pro";
+      font-weight: 300;
+      font-size: 8pt;
+      padding-top: 0;
+      padding-bottom: 20px;
+    }
+  }
+  input[type=submit] {
+    background-color: $orange;
+    color: white;
+    font-family: "Source Sans Pro";
+    font-weight: 600;
+    font-style: italic;
+    display: block;
+    width: 60%;
+    height: 6vh;
+    margin-top: 30px;
+    border: none;
+    margin: 0 auto;
+    font-size: 11pt;
+    text-transform: uppercase;
+  }
+}
+
+/* FAQ Styles */
+
+div.faq-banner {
+	@include hor-margins(auto);
+	height:60vh; //change
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-direction:column;
+	background:linear-gradient(
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.8)
+    ), url(../img/faq.jpg) no-repeat;
+	background-size:100% 100%;
+
+	h1.page-header {
+		width:100%;
+		text-align:center;
+		font-size:10vw;
+		text-transform:uppercase;
+		@include vert-margins(0px);
+	}
+	div.line {
+		width:70%;
+		border-bottom:4px solid $lightblue;
+		@include vert-margins(5px);
+	}
+	p.page-tagline {
+		font-size:$p-size;
+		color: $orange;
+		width:80%;
+		text-align:center;
+		@include hor-margins(10%);
+		@include vert-margins(0px);
+	}
+}
+
+.section-header {
+	color: $orange;
+	font-size: 17pt;
+	text-align: center;
+	@include hor-margins(auto);
+}
+
+.faq-section {
+	.question {
+		@include vert-margins(5%);
+	}
+	font-size: 11pt;
+	.odd {
+		a {
+			color: $blue;
+			text-decoration: none;
+		}
+		.right-triangle {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 10px 0 10px 17.3px;
+			border-color: transparent transparent transparent $blue;
+			display: inline-block;
+			vertical-align: top;
+		}
+		.down-triangle {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 17.3px 10px 0 10px;
+			border-color: $blue transparent transparent transparent;
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
+	.even {
+		a {
+			color: $lightblue;
+			text-decoration: none;
+		}
+		.right-triangle {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 10px 0 10px 17.3px;
+			border-color: transparent transparent transparent $lightblue;
+			display: inline-block;
+			vertical-align: top;
+		}
+		.down-triangle {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 17.3px 10px 0 10px;
+			border-color: $lightblue transparent transparent transparent;
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
+	.answer {
+		font-size: 8pt;
+		display: none;
+	}
+	.question-text {
+		width: 80%;
+		display: inline-block;
+	}
+}
+
+
+/* Menu Styles */
+#hamburger-button {
+	@include background-image('../img/hamburger-button.png');
+	width: 35px;
+	height: 28px;
+	margin-top: 20px;
+	margin-left: 26px;
+	transition: 500ms;
+}
+
+#menu-wrapper {
+	height: 100vh;
+	background-color: $lightblue;
+	width: 175px;
+	position: absolute;
+	left: 0px;
+	transform: translateX(-175px);
+	top: 0;
+	transition: 500ms;
+}
+
+#content-wrapper {
+	transition: 500ms;
+}
+
+/* Trustees Page */
+
+.section-image {
+	@include background-image('../img/CCSDlogo.jpg');
+	width: 90%;
+	height: 50px;
+	margin: 0 auto;
+}
+
+.trustees-banner {
+	@include hor-margins(auto);
+	height:60vh; //change
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-direction:column;
+	background:linear-gradient(
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.8)
+    ), url(../img/trustees.jpg) no-repeat;
+	background-size:100% 100%;
+}
+
+
+/* Micro reset */
+*,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0;}
+html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-serif; }

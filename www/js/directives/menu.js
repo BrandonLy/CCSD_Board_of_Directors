@@ -9,3 +9,4 @@ angular.module('CCSD_Board')
 });
 
 console.log('menu.js was loaded');
+

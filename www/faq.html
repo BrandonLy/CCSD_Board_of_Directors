@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   <title>CCSD Board of Directors | Trustees</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,600italic,700' rel='stylesheet' type='text/css'>
 
   <link href="css/ionic.app.css" rel="stylesheet">
 
@@ -33,6 +34,9 @@
 
         <!-- Custom Menu Directive - Code for this can be found in templates/menu.html -->
         <menu></menu>
+        <div id="content-wrapper">
+
+        <div class="site-wrapper">
 
         <!-- This will be the same for the pages except the image changes -->
         <div class="header">
@@ -40,15 +44,18 @@
         </div>
 
         <!-- Add a background image to this (faq.jpg) -->
-        <div class="trustees-banner banner">
+        <div class="faq-banner banner">
           <h1 class="page-header">FAQ</h1>
+          <div class="line"></div>
         </div>
 
         <!-- This is the scroll down call to action -->
         <div class="scroller">
           <p>scroll down for more info</p>
           <!-- Change the css of this div to be a triangle -->
-          <div class="triangle-down"></div>
+          <div class="triangle-down">
+            <img src="img/triangle.png" />
+          </div>
         </div>
 
         <!-- Set the background of this image to be (CCSDlogo.jpg) -->
@@ -61,7 +68,7 @@
           <div class="faq-section">
             <!-- Question should be visible by default | When the question is clicked on rotate the triangle 90 deg clockwise -->
             <div class="question odd">
-              <a href="">How can I find out how my child and my child’s school are doing academically? <div class="right-triangle"></div></a>
+              <a href="" onclick="return dropdown(0)"><div class="question-text">How can I find out how my child and my child’s school are doing academically?</div> <div class="right-triangle faq-triangle"></div></a>
             </div>
 
             <!-- Answer shouldn't be visible until the question is clicked on -->
@@ -77,7 +84,7 @@
           <div class="faq-section">
             <!-- Question should be visible by default | When the question is clicked on rotate the triangle 90 deg clockwise -->
             <div class="question even">
-              <a href="">What options are available for adults who never earned a high school diploma? <div class="right-triangle"></div></a>
+              <a href="" onclick="return dropdown(1)"><div class="question-text">What options are available for adults who never earned a high school diploma?</div> <div class="right-triangle faq-triangle"></div></a>
             </div>
 
             <!-- Answer shouldn't be visible until the question is clicked on -->
@@ -90,7 +97,7 @@
           <div class="faq-section">
             <!-- Question should be visible by default | When the question is clicked on rotate the triangle 90 deg clockwise -->
             <div class="question odd">
-              <a href="">What school should my child attend? <div class="right-triangle"></div></a>
+              <a href="" onclick="return dropdown(2)"><div class="question-text">What school should my child attend?</div> <div class="right-triangle faq-triangle"></div></a>
             </div>
 
             <!-- Answer shouldn't be visible until the question is clicked on -->
@@ -103,7 +110,7 @@
           <div class="faq-section">
             <!-- Question should be visible by default | When the question is clicked on rotate the triangle 90 deg clockwise -->
             <div class="question even">
-              <a href="">My child was expelled. What are the options for schooling? <div class="right-triangle"></div></a>
+              <a href="" onclick="return dropdown(3)"><div class="question-text">My child was expelled. What are the options for schooling?</div> <div class="right-triangle faq-triangle"></div></a>
             </div>
 
             <!-- Answer shouldn't be visible until the question is clicked on -->
@@ -116,7 +123,7 @@
           <div class="faq-section">
             <!-- Question should be visible by default | When the question is clicked on rotate the triangle 90 deg clockwise -->
             <div class="question odd">
-              <a href="">How do I find out if my student is eligible to participate in sports? <div class="right-triangle"></div></a>
+              <a href="" onclick="return dropdown(4)"><div class="question-text">How do I find out if my student is eligible to participate in sports?</div> <div class="right-triangle faq-triangle"></div></a>
             </div>
 
             <!-- Answer shouldn't be visible until the question is clicked on -->
@@ -129,7 +136,7 @@
           <div class="faq-section">
             <!-- Question should be visible by default | When the question is clicked on rotate the triangle 90 deg clockwise -->
             <div class="question even">
-              <a href="">How do I report a child who is not attending school? <div class="right-triangle"></div></a>
+              <a href="" onclick="return dropdown(5)"><div class="question-text">How do I report a child who is not attending school?</div> <div class="right-triangle faq-triangle"></div></a>
             </div>
 
             <!-- Answer shouldn't be visible until the question is clicked on -->
@@ -142,7 +149,7 @@
           <div class="faq-section">
             <!-- Question should be visible by default | When the question is clicked on rotate the triangle 90 deg clockwise -->
             <div class="question odd">
-              <a href="">When does my school start/the bell ring? When does the school day end? <div class="right-triangle"></div></a>
+              <a href="" onclick="return dropdown(6)"><div class="question-text">When does my school start/the bell ring? When does the school day end?</div> <div class="right-triangle faq-triangle"></div></a>
             </div>
 
             <!-- Answer shouldn't be visible until the question is clicked on -->
@@ -155,7 +162,7 @@
           <div class="faq-section">
             <!-- Question should be visible by default | When the question is clicked on rotate the triangle 90 deg clockwise -->
             <div class="question even">
-              <a href="">When and where are board meetings held? How do I speak at a meeting? How do I contact my trustee? <div class="right-triangle"></div></a>
+              <a href="" onclick="return dropdown(7)"><div class="question-text">When and where are board meetings held? How do I speak at a meeting? How do I contact my trustee?</div> <div class="right-triangle faq-triangle"></div></a>
             </div>
 
             <!-- Answer shouldn't be visible until the question is clicked on -->
@@ -165,6 +172,9 @@
 
           </div>
 
+        </div>
+
+        </div>
         </div>
 
     </ion-content>

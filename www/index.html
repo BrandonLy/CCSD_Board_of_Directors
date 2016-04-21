@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   <title>CCSD Board of Directors | Home</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,600italic,700' rel='stylesheet' type='text/css'>
 
   <link href="css/ionic.app.css" rel="stylesheet">
 
@@ -27,12 +28,16 @@
     <!-- mainCtrl scope starts here -->
     <div ng-controller="mainCtrl">
 
+
       <!-- Anything that is visible on the page should be inside the <ion-content> </ion-content> tags -->
       <ion-content>
 
-        <!-- Custom Menu Directive - Code for this can be found in templates/menu.html -->
+
+
+        <!-- Custom Menu Directive - Code for this can be found in templates/menu.html-->
         <menu></menu>
 
+      <div id="content-wrapper">
         <!-- This will be the same for the pages except the image changes -->
         <div class="header">
           <img class="home-tagline tagline" src="img/PledgeOfAchievement.png" />
@@ -41,6 +46,7 @@
         <!-- Add a background image to this (pledgeofachievement.jpg) -->
         <div class="home-banner banner">
           <h1 class="page-header">Take the Pledge of Achievement</h1>
+          <div class="line"></div>
           <p class="page-tagline">Join your community in taking the Pledge of Achievement and show your support</p>
         </div>
 
@@ -48,54 +54,62 @@
         <div class="scroller">
           <p>scroll down to pledge</p>
           <!-- Change the css of this div to be a triangle -->
-          <div class="triangle-down"></div>
+          <div class="triangle-down">
+            <img src="img/triangle.png" />
+          </div>
         </div>
 
         <!-- Begin the Contact form -->
         <div class="form">
-
+          <div class="subheader"></div>
           <h1 class="form-header">Take the Pledge</h1>
-          <div class="form-tagline">
-            <img src="img/PledgeOfAchievement.png" />
-            <div class="form-info">
-              <p class="pledge">
-                As a person or business committed to the continued growth and development of Southern Nevada, I plan to support CCSD and engage my voice, my time, and my energy to improve student achievement throughout Clark County.
-              </p>
-              <p class="required"><span class="asterisk">*</span>required</p>
-            </div>
-          </div>
 
           <!-- TODO: find a newsletter system for this form -->
-          <form action="https://formspree.io/your@email.com" method="POST">
+          <form action="https://formspree.io/patrick.j.grady@icloud.com" method="POST">
 
             <!-- The first of two "pages" to the form -->
             <!-- Show when the user clicks the go back button -->
-            <div class="form-page-1">
+            <div id="form-page-1" class="form-page-1">
 
-              <label for="name"><span class="asterisk">*</span>First Name</label>
+              <div class="form-tagline">
+                <img src="img/PledgeOfAchievement.png" />
+                <div class="form-info">
+                  <p class="pledge">
+                    As a person or business committed to the continued growth and development of Southern Nevada, I plan to support CCSD and engage my voice, my time, and my energy to improve student achievement throughout Clark County.
+                  </p>
+                  <p class="required"><span class="asterisk">*</span>required</p>
+                </div>
+              </div>
+
+
+              <label for="firstName"><span class="asterisk">*</span>First Name</label>
               <input type="text" name="firstName">
 
-              <label for="name"><span class="asterisk">*</span>Last Name</label>
+              <label for="lastName"><span class="asterisk">*</span>Last Name</label>
               <input type="text" name="lastName">
 
               <label for="business">Business Name</label>
               <input type="text" name="business" />
 
-              <label for="email"><span class="asterisk">*</span>Your Email</label>
+              <label for="_replyto"><span class="asterisk">*</span>Your Email</label>
               <input type="email" name="_replyto">
 
               <label for="phone">Phone Number</label>
               <input type="tel" name="phone"/>
 
               <!-- This is gonna operate as the continue button - shows from-page-2 -->
-              <button onclick="continueForm();" class="continue">CONTINUE</button>
+              <button type="button" onclick="continuePledge();" id="continue" class="continue">CONTINUE</button>
 
             </div>
 
             <!-- The second of the two "pages" to the form -->
             <!-- Show when the user clicks the continue button -->
-            <div class="form-page-2">
-              <p>
+            <div id="form-page-2" class="form-page-2">
+              <div class="form-tagline">
+                <img src="img/PledgeOfAchievement.png" />
+              </div>
+
+              <p class="form-tagline-blue">
                 I would like to receive more information on (email or phone required above):
               </p>
 
@@ -127,7 +141,7 @@
                   With our business partners’ help in providing needed resources for students, we build programs to "Unify business and community resources to enhance the educational experience." Large or small, any business, organization or agency can help!
                 </p>
 
-                <input type="submit" value="TAKE THE PLEDGE" />
+                <input type="submit" value="take the pledge" class="continue" />
               </div>
 
             </div>
@@ -135,8 +149,13 @@
         </div>
         <!-- End the Contact form -->
 
+
+      </div>
+
       </ion-content>
     <!-- mainCtrl scope ends here -->
+    </div>
+
     </div>
 
   </ion-pane>
